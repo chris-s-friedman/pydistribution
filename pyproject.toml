@@ -3,8 +3,10 @@ requires = ["setuptools>=61.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "custom_python_tools"
-dependencies = ['colorlog']
+name = "pydistribution"
+dependencies = ['colorlog', 
+                'custom_python_tools@git+https://github.com/chris-s-friedman/custom_python_tools@latest-release'
+                ]
 authors = [
     { name = "Chris Friedman", email = "pydistribution@chris-s-friedman.com" }
 ]
