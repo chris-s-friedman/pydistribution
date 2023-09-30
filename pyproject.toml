@@ -1,3 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "custom_python_tools"
+dependencies = ['colorlog']
+authors = [
+    { name = "Chris Friedman", email = "pydistribution@chris-s-friedman.com" }
+]
+description = "Generate random variates from different distributions"
+readme = "README.md"
+requires-python = ">=3.7"
+dynamic = ["version"]
+classifiers = ["Programming Language :: Python :: 3"]
+
+[tool.setuptools_scm]
+version_scheme = "post-release"
+local_scheme = "dirty-tag"
+
+[project.urls]
+"Homepage" = "https://github.com/chris-s-friedman/pydistribution"
+"Bug Tracker" = "https://github.com/chris-s-friedman/pydistribution/issues"
+
+
 [tool.black]
 line-length = 80
 
