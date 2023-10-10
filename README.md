@@ -1,11 +1,13 @@
 # pydistribution
 
+<!-- markdownlint-disable -->
 <p align="center">
   <a href="https://github.com/chris-s-friedman/pydistribution/blob/main/LICENSE"><img src="https://img.shields.io/github/license/chris-s-friedman/pydistribution.svg?style=flat-square"></a>
   <a href="https://github.com/marketplace/actions/super-linter"><img src="https://github.com/chris-s-friedman/pydistribution/workflows/Lint%20Code%20Base/badge.svg"></a>
   <a href="https://gitmoji.dev"><img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji"/>
 </a>
 </p>
+<!-- markdownlint-enable -->
 
 Generate random variates in python
 
