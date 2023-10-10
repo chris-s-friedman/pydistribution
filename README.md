@@ -44,4 +44,3 @@ Please follow the instructions there to build releases.
 This repository is setup to take advantage of the
 [GitHub Super Linter](https://github.com/marketplace/actions/super-linter).
 Of note are the markdownlint files and the pyproject.toml.
-
