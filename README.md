@@ -9,6 +9,20 @@
 
 Generate random variates in python
 
+## Usage
+
+### Generate a random number
+
+```py
+from pydistribution.random import Random
+
+# Set a seed
+random = Random(seed = 12345678)
+
+# Generate 10 random numbers using MINSTD LCG
+[i for i in random.lcg_minstd(n = 10)]
+```
+
 ## Developer Notes
 
 ### Releases
@@ -22,3 +36,4 @@ Please follow the instructions there to build releases.
 This repository is setup to take advantage of the
 [GitHub Super Linter](https://github.com/marketplace/actions/super-linter).
 Of note are the markdownlint files and the pyproject.toml.
+
