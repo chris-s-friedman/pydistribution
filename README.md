@@ -9,6 +9,12 @@
 
 Generate random variates in python
 
+## Installation
+
+```sh
+pip install git+https://github.com/chris-s-friedman/pydistribution@latest-release
+```
+
 ## Usage
 
 ### Generate a random number
