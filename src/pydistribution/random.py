@@ -54,4 +54,7 @@ class Random(object):
         :return: generated random numbers
         :rtype: iter
         """
-        return self.lcg_generic(n=n, a=16807, c=0, mod=(2**31) - 1)
+        m = (2**31) - 1
+        if not 1 < self.seed < m:
+            raise ValueError("seed must be between 1 and 2^31 - 1")
+        return self.lcg_generic(n=n, a=16807, c=0, mod=m)
