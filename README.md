@@ -19,16 +19,24 @@ pip install git+https://github.com/chris-s-friedman/pydistribution@latest-releas
 
 ## Usage
 
-### Generate a random number
+### Generate random numbers
+
+`pydistribution` can generate random numbers using a Linear Congruential
+Generator (LCG).
+
+#### Using an LCG
 
 ```py
-from pydistribution.random import Random
+from pydistribution.random import lcg
 
 # Set a seed
-random = Random(seed = 12345678)
+lcg_generator = lcg(seed = 12345678)
+
+# Generate 10 random numbers using MINSTD LCG between 0 and 1
+[i for i in lcg_generator.minstd(n = 10)]
 
 # Generate 10 random numbers using MINSTD LCG
-[i for i in random.lcg_minstd(n = 10)]
+[i for i in lcg_generator.minstd(n = 10, unif = False)]
 ```
 
 ## Developer Notes
