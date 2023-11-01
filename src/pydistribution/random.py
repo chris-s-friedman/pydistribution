@@ -21,7 +21,7 @@ class Random(object):
             raise TypeError("seed may only be an integer")
         self.seed = seed
 
-    def getRandomNumber():
+    def getRandomNumber(self):
         """
         Generate a random number, that is a four.
 
@@ -32,6 +32,7 @@ class Random(object):
         :return: a random number
         :rtype: int
         """
+        self.__logger__.warning("This function is for fun and always returns 4")
         return 4
 
 
