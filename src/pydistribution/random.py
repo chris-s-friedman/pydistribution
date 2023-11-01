@@ -21,6 +21,20 @@ class Random(object):
             raise TypeError("seed may only be an integer")
         self.seed = seed
 
+    def getRandomNumber(self):
+        """
+        Generate a random number, that is a four.
+
+        The four was randomly chosen. https://xkcd.com/221/
+
+        NOTE: this always returns a "4"
+
+        :return: a random number
+        :rtype: int
+        """
+        self.__logger__.warning("This function is for fun and always returns 4")
+        return 4
+
 
 class lcg(Random):
     """
