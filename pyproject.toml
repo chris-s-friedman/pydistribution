@@ -4,8 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pydistribution"
-dependencies = ['colorlog', 
-                'custom_python_tools@git+https://github.com/chris-s-friedman/custom_python_tools@latest-release'
+dependencies = [
+                'more-itertools',
+                'custom_python_tools@git+https://github.com/chris-s-friedman/custom_python_tools@latest-release',
+                'sphinx_rtd_theme'
                 ]
 authors = [
     { name = "Chris Friedman", email = "pydistribution@chris-s-friedman.com" }
