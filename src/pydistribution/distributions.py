@@ -18,16 +18,16 @@ def prn_handler(u, prng):
     return u
 
 
-def weibull(lam, b, u=None, prng=DEFAULT_PRNG()):
+def weibull(lam, b, u=None, prng=DEFAULT_PRNG):
     u = prn_handler(u=u, prng=prng)
     return (-1 / lam) * math.log(u) ** (1 / b)
 
 
-def exponential(lam, u=None, prng=DEFAULT_PRNG()):
-    return weibull(u=u, lam=lam, b=1)
+def exponential(lam, u=None, prng=DEFAULT_PRNG):
+    return weibull(u=u, lam=lam, b=1, prng=prng)
 
 
-def triangular(minimum=0, mode=1, maximum=2, u=None, prng=DEFAULT_PRNG()):
+def triangular(minimum=0, mode=1, maximum=2, u=None, prng=DEFAULT_PRNG):
     u = prn_handler(u=u, prng=prng)
     u_midpoint = (mode - minimum) / (maximum - minimum)
     if u < u_midpoint:
@@ -39,7 +39,7 @@ def triangular(minimum=0, mode=1, maximum=2, u=None, prng=DEFAULT_PRNG()):
     return x
 
 
-def bernouli(p, u=None, prng=DEFAULT_PRNG()):
+def bernouli(p, u=None, prng=DEFAULT_PRNG):
     u = prn_handler(u=u, prng=prng)
     if u <= p:
         x = 1
@@ -48,7 +48,7 @@ def bernouli(p, u=None, prng=DEFAULT_PRNG()):
     return x
 
 
-def geometric(p, u=None, prng=DEFAULT_PRNG()):
+def geometric(p, u=None, prng=DEFAULT_PRNG):
     u = prn_handler(u=u, prng=prng)
     return math.ceil(math.log(1 - u) / math.log(1 - p))
 
