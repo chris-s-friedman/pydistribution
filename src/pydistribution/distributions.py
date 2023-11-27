@@ -1,9 +1,12 @@
+"""
+Generate random variates from different distributions
+"""
 import math
 from random import random
 
 from more_itertools import repeatfunc
 
-DEFAULT_PRNG = random
+DEFAULT_PRNG = random.random
 
 
 def prn_handler(u):
@@ -57,7 +60,7 @@ def poisson(lam, prng=DEFAULT_PRNG):
             p *= u
             x += 1
     else:
-        x = max(0, math.floor(lam + (math.sqrt(lam) * normal(0, 1)) + 0.5))
+        x = max(0, math.floor(lam + (math.sqrt(lam) * standard_normal()) + 0.5))
     return x
 
 
@@ -81,7 +84,7 @@ def negative_binomial(n, p, prng=DEFAULT_PRNG):
 
 def chi_square(n):
     def trial():
-        return normal(0, 1) ** 2
+        return standard_normal()(0, 1) ** 2
 
     return sum(repeatfunc(trial, times=n))
 
