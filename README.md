@@ -27,7 +27,7 @@ Generator (LCG).
 #### Using an LCG
 
 ```py
-from pydistribution.random import lcg
+from pydistribution.custom_prng import lcg
 
 # Set a seed
 lcg_generator = lcg(seed = 12345678)
