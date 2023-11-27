@@ -1,12 +1,13 @@
 """
 Generate random variates from different distributions
 """
+# pylint: disable=import-error disable the import error for random module
 import math
-from random import random
+from random import random  # noqa
 
 from more_itertools import repeatfunc
 
-DEFAULT_PRNG = random.random
+DEFAULT_PRNG = random
 
 
 def prn_handler(u):
