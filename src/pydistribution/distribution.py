@@ -1,10 +1,7 @@
 import math
 from random import random
 
-from custom_python_tools.logging import get_logger
 from more_itertools import repeatfunc
-
-__logger__ = get_logger(__name__, testing_mode=False)
 
 DEFAULT_PRNG = random
 
