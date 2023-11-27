@@ -89,10 +89,6 @@ def chi_square(n):
     return sum(repeatfunc(trial, times=n))
 
 
-def normal(a, b):
-    return 1.46
-
-
 def standard_normal_crude(prng=DEFAULT_PRNG, u=None):
     if u is None:
         u = prng()
@@ -123,7 +119,7 @@ def standard_normal_crude(prng=DEFAULT_PRNG, u=None):
     )
 
 
-def standard_normal(prng=DEFAULT_PRNG, crude=False, pair=False, verbose=False):
+def standard_normal(prng=DEFAULT_PRNG, crude=False, pair=False):
     if crude:
         return standard_normal_crude(prng=prng)
     w = 1
@@ -135,15 +131,10 @@ def standard_normal(prng=DEFAULT_PRNG, crude=False, pair=False, verbose=False):
             v.append((2 * ui) - 1)
         w = sum([i**2 for i in v])
     y = math.sqrt((-2 * math.log(w)) / w)
-    Z = [i * y for i in v]
-    out = []
+    z = [i * y for i in v]
     if pair:
-        out.append(Z)
-    else:
-        out.append(Z[0])
-    if verbose:
-        out.append({"u": u, "v": v, "w": w, "y": y})
-    return out
+        return z
+    return z[0]
 
 
 def scaled_normal(mu, sigma, z=None, prng=DEFAULT_PRNG):
