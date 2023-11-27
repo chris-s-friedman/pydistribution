@@ -82,11 +82,25 @@ def negative_binomial(n, p, prng=DEFAULT_PRNG):
     return sum(repeatfunc(trial, times=n))
 
 
-def chi_square(n):
+def chi_square(n, prng=DEFAULT_PRNG):
     def trial():
-        return standard_normal()(0, 1) ** 2
+        return standard_normal(prng=prng)(0, 1) ** 2
 
     return sum(repeatfunc(trial, times=n))
+
+
+def t(n, prng=DEFAULT_PRNG):
+    normal_rv = standard_normal(prng=prng)
+    chi_sq_rv = chi_square(n, prng=prng)
+    return normal_rv / math.sqrt(chi_sq_rv / n)
+
+
+def cauchy(prng=DEFAULT_PRNG):
+    return t(1, prng=prng)
+
+
+def F(n, m, prng=DEFAULT_PRNG):
+    return (chi_square(n, prng=prng) / n) * (chi_square(m, prng=prng) / m)
 
 
 def standard_normal_crude(prng=DEFAULT_PRNG, u=None):
