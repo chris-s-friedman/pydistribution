@@ -63,7 +63,7 @@ def poisson(lam, prng=DEFAULT_PRNG):
         p = 1
         x = -1
         while p < a:
-            u = prn_handler(u=u, prng=prng)
+            u = prn_handler(u=None, prng=prng)
             p *= u
             x += 1
     else:
