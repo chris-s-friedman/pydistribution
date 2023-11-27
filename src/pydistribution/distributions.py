@@ -27,6 +27,10 @@ def exponential(lam, u=None, prng=DEFAULT_PRNG):
     return weibull(u=u, lam=lam, b=1, prng=prng)
 
 
+def laplace(mu, b, prng=DEFAULT_PRNG):
+    return mu + (exponential(1 / b, prng=prng) - exponential(1 / b, prng=prng))
+
+
 def triangular(minimum=0, mode=1, maximum=2, u=None, prng=DEFAULT_PRNG):
     u = prn_handler(u=u, prng=prng)
     u_midpoint = (mode - minimum) / (maximum - minimum)
