@@ -10,23 +10,25 @@ from more_itertools import repeatfunc
 DEFAULT_PRNG = random
 
 
-def prn_handler(u):
+def prn_handler(u, prng):
+    if u is None:
+        u = prng()
     if not 0 < u < 1:
         raise ValueError("U must be between 0 and 1")
     return u
 
 
-def weibull(lam, b, u=DEFAULT_PRNG()):
-    u = prn_handler(u=u)
+def weibull(lam, b, u=None, prng=DEFAULT_PRNG()):
+    u = prn_handler(u=u, prng=prng)
     return (-1 / lam) * math.log(u) ** (1 / b)
 
 
-def exponential(lam, u=DEFAULT_PRNG()):
+def exponential(lam, u=None, prng=DEFAULT_PRNG()):
     return weibull(u=u, lam=lam, b=1)
 
 
-def triangular(minimum=0, mode=1, maximum=2, u=DEFAULT_PRNG()):
-    u = prn_handler(u=u)
+def triangular(minimum=0, mode=1, maximum=2, u=None, prng=DEFAULT_PRNG()):
+    u = prn_handler(u=u, prng=prng)
     u_midpoint = (mode - minimum) / (maximum - minimum)
     if u < u_midpoint:
         x = minimum + math.sqrt(u * (maximum - minimum) * (mode - minimum))
@@ -37,8 +39,8 @@ def triangular(minimum=0, mode=1, maximum=2, u=DEFAULT_PRNG()):
     return x
 
 
-def bernouli(p, u=DEFAULT_PRNG()):
-    u = prn_handler(u)
+def bernouli(p, u=None, prng=DEFAULT_PRNG()):
+    u = prn_handler(u=u, prng=prng)
     if u <= p:
         x = 1
     else:
@@ -46,8 +48,8 @@ def bernouli(p, u=DEFAULT_PRNG()):
     return x
 
 
-def geometric(p, u=DEFAULT_PRNG()):
-    u = prn_handler(u)
+def geometric(p, u=None, prng=DEFAULT_PRNG()):
+    u = prn_handler(u=u, prng=prng)
     return math.ceil(math.log(1 - u) / math.log(1 - p))
 
 
@@ -57,7 +59,7 @@ def poisson(lam, prng=DEFAULT_PRNG):
         p = 1
         x = -1
         while p < a:
-            u = prn_handler(prng())
+            u = prn_handler(u=u, prng=prng)
             p *= u
             x += 1
     else:
@@ -105,9 +107,7 @@ def F(n, m, prng=DEFAULT_PRNG):
 
 
 def standard_normal_crude(prng=DEFAULT_PRNG, u=None):
-    if u is None:
-        u = prng()
-    u = prn_handler(u)
+    u = prn_handler(u=u, prng=prng)
 
     def sign(x):
         if x > 0:
@@ -139,7 +139,7 @@ def standard_normal(prng=DEFAULT_PRNG, crude=False, pair=False):
         return standard_normal_crude(prng=prng)
     w = 1
     while w >= 1:
-        u = [prn_handler(prng()) for i in range(2)]
+        u = [prn_handler(u=None, prng=prng) for i in range(2)]
         # center ui around 0:
         v = []
         for ui in u:
