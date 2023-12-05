@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "pydistribution"
 dependencies = [
                 'more-itertools',
-                'custom_python_tools@git+https://github.com/chris-s-friedman/custom_python_tools@latest-release',
                 'sphinx_rtd_theme'
                 ]
 authors = [
