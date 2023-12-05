@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "pydistribution"
 dependencies = [
                 'more-itertools',
-                'sphinx_rtd_theme'
                 ]
 authors = [
     { name = "Chris Friedman", email = "pydistribution@chris-s-friedman.com" }
